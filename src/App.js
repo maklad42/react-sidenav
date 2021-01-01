@@ -1,23 +1,24 @@
+import React, { useState } from 'react'
 import logo from './logo.svg';
 import './App.css';
+import SideNav from './SideNav';
 
-function App() {
+function App(props, state) {
+
+  const [wid, setWid] = useState('0%');
+
+  const openSidenav = () => {
+    setWid('25%');
+  }
+
+  const closeSidenav = () => {
+    setWid('0%');
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <button onClick={openSidenav}>Menu</button>
+      <SideNav name="ZaphodB" width={wid} closeNav={closeSidenav}/>
     </div>
   );
 }
